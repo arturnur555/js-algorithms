@@ -1,5 +1,5 @@
 import {describe, test, expect } from 'bun:test';
-import { indexOf } from './index-of';
+import { indexOf } from './index-of.js';
 
 describe('Тесты indexOf', () => {
     test('должна вернуть 0 для подстроки в начале', () => {
@@ -45,5 +45,5 @@ describe('Тесты indexOf', () => {
     test('должна выбросить TypeError если второй аргумент не строка', () => {
         expect(() => indexOf('hello', 123)).toThrow(TypeError);
  });
-    
+
 });
