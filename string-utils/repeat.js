@@ -1,3 +1,22 @@
+/**
+ * Возвращает строку str, повторённую count раз.
+ * Дробная часть count обрезается (Math.floor).
+ * Если count пропущен — возвращает пустую строку.
+ *
+ * @param {string} str — строка для повторения
+ * @param {number} [count] — количество повторений
+ * @returns {string} — повторённая строка
+ * @throws {TypeError} — если str не строка или count не число
+ * @throws {RangeError} — если count отрицательный
+ *
+ * @example
+ *   repeat('ab', 3);   // 'ababab'
+ *   repeat('a', 1);    // 'a'
+ *   repeat('a', 0);    // ''
+ *   repeat('a', 2.7);  // 'aa' (обрезано)
+ *   repeat('a');       // '' (count = undefined)
+ *   repeat('да', 3);   // 'дадада'
+ */
 export function repeat(str, count) {
 
     if(typeof str !== 'string') {
