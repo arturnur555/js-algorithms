@@ -18,29 +18,34 @@
  *   replaceAll('abc', '', 'X');        // 'XaXbXcX'
  */
 export function replaceAll(str, search, replacement) {
-    if (typeof str !== 'string' || typeof search !== 'string' || typeof replacement !== 'string')
+    if (typeof str !== 'string' || typeof search !== 'string' || typeof replacement !== 'string') {
         throw new TypeError('все аргументы должны быть строками');
+    }
 
-    let n = len(str), m = len(search), result = '', pos = 0;
+    const n = len(str);
+    const m = len(search);
+    let result = '';
+    let pos = 0;
 
     if (m === 0) {
-        for (result = replacement; pos < n; pos++) result += str[pos] + replacement;
+        for (result = replacement; pos < n; pos++) { result += str[pos] + replacement; }
         return result;
     }
 
     while (pos <= n - m) {
         let found = -1;
         for (let i = pos; i <= n - m && found === -1; i++) {
-        let j = 0;
-        while (j < m && str[i + j] === search[j]) j++;
-        if (j === m) found = i;
+            let j = 0;
+            while (j < m && str[i + j] === search[j]) { j++; }
+            if (j === m) { found = i; }
+        }
+
+        if (found === -1) { break; }
+        for (let i = pos; i < found; i++) { result += str[i]; }
+        result += replacement;
+        pos = found + m;
     }
 
-    if (found === -1) break;
-    for (let i = pos; i < found; i++) result += str[i];
-    result += replacement;
-    pos = found + m;
- }
-    while (pos < n) result += str[pos++];
+    while (pos < n) { result += str[pos++]; }
     return result;
 }
