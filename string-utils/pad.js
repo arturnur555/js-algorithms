@@ -20,12 +20,21 @@
  *   pad('hi', 7, 'ab', 'left');  // 'ababahi'
  */
 export function pad(str, length, char, side) {
-    if (typeof str !== 'string') throw new TypeError('str должен быть строкой');
-    if (typeof length !== 'number') throw new TypeError('length должен быть числом');
-    if (typeof char !== 'string') throw new TypeError('char должен быть строкой');
-    if (typeof side !== 'string') throw new TypeError('side должен быть строкой');
-    if (side !=='left' && side !== 'right' && side !== 'both')
+    if (typeof str !== 'string') {
+        throw new TypeError('str должен быть строкой');
+    }
+    if (typeof length !== 'number') {
+        throw new TypeError('length должен быть числом');
+    }
+    if (typeof char !== 'string') {
+        throw new TypeError('char должен быть строкой');
+    }
+    if (typeof side !== 'string') {
+        throw new TypeError('side должен быть строкой');
+    }
+    if (side !== 'left' && side !== 'right' && side !== 'both') {
         throw new Error("side должен быть 'left', 'right' или 'both'");
+    }
 
     let padding = length - len(str);
     if (padding <= 0) return str;
