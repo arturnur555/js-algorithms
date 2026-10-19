@@ -21,14 +21,16 @@ export function trim(str) {
         throw new TypeError('str должен быть строкой');
     }
 
-    let strLen = len(str);
+    const strLen = len(str);
     let start = 0;
     let end = strLen;
 
-    while (start < end && str [start] === ' ') start++;
-    while (end > start && str [end - 1] === ' ') end--;
+    while (start < end && str[start] === ' ') {
+        start++;
+    }
+    while (end > start && str[end - 1] === ' ') {
+        end--;
+    }
 
-    let result = '';
-    for (let i = start; i < end; i++) result += str[i];
-    return result;
+    return slice(str, start, end);
 }
