@@ -28,22 +28,41 @@ export function substring(str, start, end) {
     if (typeof start !== 'number' || (end !== undefined && typeof end !== 'number')) {
         throw new TypeError('start и end должны быть числами');
     }
-    let strLen = len(str);
-    if (end === undefined) end = strLen;
-    
-    if (start !==  start) start = 0;
-    if (end !== end) end = 0;
 
-    if (start < 0) start = 0;
-    if (end < 0) end = 0;
+    const strLen = len(str);
 
-    if (start > strLen) start = strLen;
-    if (end > strLen) end = strLen;
+    if (end === undefined) {
+        end = strLen;
+    }
 
-    if (start > end) [start, end] = [end, start];
+    if (start !== start) {
+        start = 0;
+    }
+    if (end !== end) {
+        end = 0;
+    }
+
+    if (start < 0) {
+        start = 0;
+    }
+    if (end < 0) {
+        end = 0;
+    }
+
+    if (start > strLen) {
+        start = strLen;
+    }
+    if (end > strLen) {
+        end = strLen;
+    }
+
+    if (start > end) {
+        [start, end] = [end, start];
+    }
 
     let result = '';
-    for (let i = start; i < end; i++) result += str[i];
+    for (let i = start; i < end; i++) {
+        result += str[i];
+    }
     return result;
-
 }
