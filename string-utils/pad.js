@@ -36,18 +36,26 @@ export function pad(str, length, char, side) {
         throw new Error("side должен быть 'left', 'right' или 'both'");
     }
 
-    let padding = length - len(str);
-    if (padding <= 0) return str;
+   const padding = length - len(str);
+if (padding <= 0) {
+    return str;
+}
 
-    let m = len(char), fill = (n) => {
-        let s = '';
-        for (let i = 0; i <n; i++) s += char[i%m];
-        return s;
-    };
-
-        if (side === 'left') return fill(padding) + str;
-        if (side === 'right') return str + fill(padding);
-
-        let left = Math.floor(padding / 2);
-        return fill(left) + str + fill(padding - left);
+const m = len(char);
+const fill = (n) => {
+    let s = '';
+    for (let i = 0; i < n; i++) {
+        s += char[i % m];
     }
+    return s;
+};
+
+if (side === 'left') {
+    return fill(padding) + str;
+}
+if (side === 'right') {
+    return str + fill(padding);
+}
+
+const left = Math.floor(padding / 2);
+return fill(left) + str + fill(padding - left);
