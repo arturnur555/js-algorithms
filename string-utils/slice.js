@@ -32,31 +32,46 @@ export function slice(str, start, end) {
     throw new TypeError('end должен быть числом');
   }
 
-  let strLen = len(str);
+  const strLen = len(str);
 
-  if (end === undefined) end = strLen;
+  if (end === undefined) {
+    end = strLen;
+  }
 
-  if (start !== start) start = 0;
-  if (end !== end) end = 0;
+  if (start !== start) {
+    start = 0;
+  }
+  if (end !== end) {
+    end = 0;
+  }
 
-  if (start < 0) start = strLen + start;
-  if (end < 0) end = strLen + end;
+  if (start < 0) {
+    start = strLen + start;
+  }
+  if (end < 0) {
+    end = strLen + end;
+  }
 
-  if (start < 0) start = 0;
-  if (end < 0) end = 0;
-  if (start > strLen) start = strLen;
-  if (end > strLen) end = strLen;
+  if (start < 0) {
+    start = 0;
+  }
+  if (end < 0) {
+    end = 0;
+  }
+  if (start > strLen) {
+    start = strLen;
+  }
+  if (end > strLen) {
+    end = strLen;
+  }
 
-  if (start >= end) return '';
+  if (start >= end) {
+    return '';
+  }
 
   let result = '';
-  for (let i = start; i < end; i++) result += str[i];
+  for (let i = start; i < end; i++) {
+    result += str[i];
+  }
   return result;
 }
-
-
-
-
-
-
-
