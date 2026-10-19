@@ -19,21 +19,32 @@ import { indexOf } from './index-of.js';
  *   replace('hello', 'hello', 'hi');             // 'hi'
  */
 export function replace(str, search, replacement) {
-    if (typeof str !== 'string') throw new TypeError('str должен быть строкой');
-    if (typeof search !== 'string') throw new TypeError('search должен быть строкой');
-    if (typeof replacement !== 'string') throw new TypeError('replacement должен быть строкой');
+    if (typeof str !== 'string') {
+        throw new TypeError('str должен быть строкой');
+    }
+    if (typeof search !== 'string') {
+        throw new TypeError('search должен быть строкой');
+    }
+    if (typeof replacement !== 'string') {
+        throw new TypeError('replacement должен быть строкой');
+    }
 
-    let pos = indexOf(str, search);
-    if (pos === -1) return str;
+    const pos = indexOf(str, search);
+    if (pos === -1) {
+        return str;
+    }
 
-    let searchLen = len(search);
-    let strLen = len(str);
+    const searchLen = len(search);
+    const strLen = len(str);
     let result = '';
 
-    for (let i = 0; i < pos; i++) result += str[i];
+    for (let i = 0; i < pos; i++) {
+        result += str[i];
+    }
     result += replacement;
-    for (let i = pos + searchLen; i < strLen; i++) result += str[i];
+    for (let i = pos + searchLen; i < strLen; i++) {
+        result += str[i];
+    }
 
     return result;
-
 }
