@@ -1,4 +1,5 @@
 import { len } from './len.js';
+import { slice } from './slice.js';
 
 /**
  * Удаляет пробелы с начала и конца строки.

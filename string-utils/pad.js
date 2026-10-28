@@ -59,3 +59,4 @@ if (side === 'right') {
 
 const left = Math.floor(padding / 2);
 return fill(left) + str + fill(padding - left);
+}
