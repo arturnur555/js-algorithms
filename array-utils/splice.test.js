@@ -68,4 +68,40 @@ describe('Тесты splice (удаление)', () => {
         expect(() => splice(null, 0, 1)).toThrow(TypeError);
         expect(() => splice(undefined, 0, 1)).toThrow(TypeError);
  });
+    test('должна вставить элементы на место удаленных', () => {
+        const arr = [1, 2, 3];
+        const removed = splice(arr, 1, 1, 'a', 'b');
+        expect(removed).toEqual([2]);
+        expect(arr).toEqual([1, 'a', 'b', 3]);
+ });
+    test('должна вставить элементы без удаления', () => {
+        const arr = [1, 2, 3];
+        const removed = splice(arr, 1, 0, 'x');
+        expect(removed).toEqual([]);
+        expect(arr).toEqual([1, 'x', 2, 3]);
+ });
+    test('должна вставить в начало', () => {
+        const arr = [2, 3];
+        const removed = splice(arr, 0, 0, 0, 1);
+        expect(removed).toEqual([]);
+        expect(arr).toEqual([0, 1, 2, 3]);
+ });
+    test('должна вставить в конец', () => {
+        const arr = [1, 2];
+        const removed = splice(arr, 2, 0, 3, 4);
+        expect(removed).toEqual([]);
+        expect(arr).toEqual([1, 2, 3, 4]);
+ });
+    test('должна вставить по отрицательному start', () => {
+        const arr = [1, 2, 3];
+        const removed = splice(arr, -1, 0, 'x');
+        expect(removed).toEqual([]);
+        expect(arr).toEqual([1, 2, 'x', 3]);
+ });
+    test('должна заменить элементы', () => {
+        const arr = [1, 2, 3];
+        const removed = splice(arr, 0, 2, 'a');
+        expect(removed).toEqual([1, 2]);
+        expect(arr).toEqual(['a', 3]);
+ });
 });
