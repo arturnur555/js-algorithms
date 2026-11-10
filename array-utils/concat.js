@@ -19,11 +19,13 @@ export function concat(arr1, arr2) {
     }
     const result = [];
 
-    for (let i = 0; i < len(arr1); i++) {
-        result[result.length] = arr1[i];
-    }
-    for (let i = 0; i < len(arr2); i++) {
-        result[result.length] = arr2[i];
-    }
-    return result;
+for (let i = 0; i < len(arr1); i++) {
+    result[len(result)] = arr1[i];
+}
+
+for (let i = 0; i < len(arr2); i++) {
+    result[len(result)] = arr2[i];
+}
+
+return result;
 }
