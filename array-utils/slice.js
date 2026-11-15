@@ -28,7 +28,7 @@ export function slice(arr, start, end) {
 
     const result = [];
     for (let i = s; i < e; i++) {
-        result[result.length] = arr[i];
+        result[len(result)] = arr[i];
     }
     return result;
 }
