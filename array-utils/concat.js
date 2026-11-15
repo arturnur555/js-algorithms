@@ -23,7 +23,7 @@ export function concat(arr1, arr2) {
         result[len(result)] = arr1[i];
     }
     for (let i = 0; i < len(arr2); i++) {
-        esult[len(result)] = arr2[i];
+        result[len(result)] = arr2[i];
     }
     return result;
 }
