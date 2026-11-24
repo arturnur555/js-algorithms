@@ -27,9 +27,12 @@ export function slice(arr, start, end) {
     const e = Math.max(0, Math.min(n, end === undefined ? n : end < 0 ? n + end : end));
 
     const result = [];
+
      for (let i = s; i < e; i++) {
         result[len(result)] = arr[i];
     }
 
     return result;
 }
+
+
